@@ -1,35 +1,37 @@
-"use strict";
+'use strict';
 
 $(document).ready(function () {
-  var $stories = $(".stories");
-  var $head = $(".header");
-  var $footer = $(".footer-text");
-  $(".selections").on("change", function () {
-    $(".loader").show();
-    if (!$head.hasClass("header-small")) {
-      $head.addClass("header-small");
+  var $stories = $('.stories');
+  var $head = $('.header');
+  var $footer = $('.footer-text');
+  $('.selections').selectric();
+  $('.selections').on('change', function () {
+
+    $('.loader').show();
+    if (!$head.hasClass('header-small')) {
+      $head.addClass('header-small');
     }
 
-    if (!$footer.hasClass("footer-text-small")) {
-      $footer.addClass("footer-text-small");
+    if (!$footer.hasClass('footer-text-small')) {
+      $footer.addClass('footer-text-small');
     }
 
-    var userSelection = $(".selections").val();
-    var url = 'https://api.nytimes.com/svc/topstories/v2/' + userSelection + '.json';
-    url += "?" + $.param({
-      "api-key": "ec60c8300c16429f842a06b796a2a53f"
+    var userSelection = $('.selections').val();
+    var url = 'https://api.nytimes.com/svc/topstories/v2/${userSelection}.json';
+    url += '?' + $.param({
+      'api-key': 'ec60c8300c16429f842a06b796a2a53f'
     });
 
     $stories.empty();
     $.ajax({
       url: url,
-      method: "GET"
+      method: 'GET'
     }).done(function (data) {
-      $(".loader").hide();
+
+      $('.loader').hide();
       var resultsObj = data.results;
       var sliced = resultsObj.filter(function (item) {
-        if (item.multimedia.length === 0) ;
-        {
+        if (item.multimedia.length === 0) ;{
           return item.multimedia.length;
         }
       }).slice(0, 12);
@@ -40,17 +42,17 @@ $(document).ready(function () {
             articleText = value.abstract,
             articleLink = value.url;
 
-        var output = "";
-        output += "<li>";
+        var output = '';
+        output += '<li>';
         output += '<a href="' + articleLink + '" >';
         output += '<div class="articlePic" style="background-image:url(' + image + ')">';
-        output += '<p class="text">' + articleText + "</p></div>";
-        output += "</a></li>";
-        $("a").attr("target", "_blank");
-        $("#stories").append(output);
+        output += '<p class="text">' + articleText + '</p></div>';
+        output += '</a></li>';
+        $('a').attr('target', '_blank');
+        $('#stories').append(output);
       });
     }).fail(function () {
-      $(".loader").hide();
+      $('.loader').hide();
       alert("No stories were found! Please selection a different section");
     });
   });
