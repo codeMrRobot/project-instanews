@@ -67,7 +67,3 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('default', ['watch', 'browser-sync']);
-
-
-
-      

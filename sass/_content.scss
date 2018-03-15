@@ -1,11 +1,11 @@
 body{
-  font-family:'Open Sans Light', sans-serif;
+  font-family:"Open Sans", sans-serif;
   background: black; 
   color: white;
-  font-weight: lighter;
   margin-left:0;
   margin-right:0;
   height:100%;
+  font-weight:300;
 } 
 
 
@@ -47,7 +47,6 @@ body{
     margin-top:0;
      }
     .articlePic {
-    display:column;
     width: 100vw;
     height: 450px;
     background-size:cover;
@@ -99,7 +98,7 @@ body{
    }
  }
 }
-@media screen and (min-width : 1024px){
+@media screen and (min-width : 1000px){
 
   .stories{
     li{

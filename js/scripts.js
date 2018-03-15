@@ -15,16 +15,16 @@ $(document).ready(() => {
     } 
 
     let userSelection = $('.selections').val();
-    let url = "https://api.nytimes.com/svc/topstories/v2/${userSelection}.json";
+    let url = 'https://api.nytimes.com/svc/topstories/v2/' + userSelection + '.json';
     url += '?' + $.param({
-      'api-key': '5521e36162114441aee4a042f2d7fdae'
-    });
+      'api-key': 'ec60c8300c16429f842a06b796a2a53f'
+    }); //end of param method
 
     $stories.empty();
     $.ajax({
       url: url,
       method: 'GET',
-    })
+    })  //end of ajax method
 
       .done((data) => {
 

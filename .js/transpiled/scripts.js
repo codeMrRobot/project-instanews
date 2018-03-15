@@ -17,16 +17,18 @@ $(document).ready(function () {
     }
 
     var userSelection = $('.selections').val();
-    var url = 'https://api.nytimes.com/svc/topstories/v2/${userSelection}.json';
+    var url = 'https://api.nytimes.com/svc/topstories/v2/' + userSelection + '.json';
     url += '?' + $.param({
       'api-key': 'ec60c8300c16429f842a06b796a2a53f'
-    });
+    }); //end of param method
 
     $stories.empty();
     $.ajax({
       url: url,
       method: 'GET'
-    }).done(function (data) {
+    }) //end of ajax method
+
+    .done(function (data) {
 
       $('.loader').hide();
       var resultsObj = data.results;
