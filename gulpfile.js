@@ -9,19 +9,8 @@ var gulp = require("gulp"),
  autoprefixer = require("gulp-autoprefixer"),
  cssnano = require("gulp-cssnano"),
  rename = require("gulp-rename"),
- prettyError = require("gulp-prettyerror"),
- babel = require("gulp-babel");
+ prettyError = require("gulp-prettyerror");
 
- const input = './js/scripts.js';
- const output = '.js/transpiled';
-
-
-// TASKS
-gulp.task('babel', () => {
-  return gulp.src('./js/*.js')
-    .pipe(babel())
-    .pipe(gulp.dest(output));
-});
 
 gulp.task('sass', function() {
   gulp.src('./sass/style.scss')
@@ -36,16 +25,15 @@ gulp.task('sass', function() {
      .pipe(gulp.dest('./build/css'));
 });
 
-gulp.task('scripts',['eslint','babel'], function () {
+gulp.task('scripts',['eslint'], function () {
   gulp.src('./js/*.js') // What files do we want gulp to consume?
-    .pipe(babel())
     .pipe(uglify()) // Call the uglify function on these files
     .pipe(rename({ extname: '.min.js' })) // Rename uglified file
     .pipe(gulp.dest('./build/js')) //dist uglified file to/build/js
 });
 
 gulp.task('eslint', function () {
-  return gulp.src(['./js/.js','!node_modules/*'])
+  return gulp.src(['./js/*.js','!node_modules/*'])
   .pipe(eslint())
   .pipe(eslint.format()) 
   .pipe(eslint.failAfterError());
