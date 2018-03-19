@@ -20,7 +20,7 @@ body{
   display:none;
   width:45px;
   margin:0 auto;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -46,6 +46,15 @@ body{
     color:white;
     margin-top:0;
      }
+
+     a:hover{
+      p{
+        visibility: visible;
+        height:27%;
+        transition: 1s ease;
+      }
+    }
+
     .articlePic {
     width: 100vw;
     height: 450px;
@@ -69,17 +78,7 @@ body{
     }
  }
 }
-.stories{
-  li{
-    a:hover{
-      p{
-        visibility: visible;
-        height:35%;
-        transition: height 1s;
-      }
-    }
-  }
-}
+
 .fail-message{
   text-align: center;
   font-size: 2rem;

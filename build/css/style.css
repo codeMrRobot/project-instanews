@@ -167,7 +167,7 @@ body {
   display: none;
   width: 45px;
   margin: 0 auto;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -198,6 +198,11 @@ body {
     .stories li a {
       color: white;
       margin-top: 0; }
+    .stories li a:hover p {
+      visibility: visible;
+      height: 27%;
+      -webkit-transition: 1s ease;
+      transition: 1s ease; }
     .stories li .articlePic {
       width: 100vw;
       height: 450px;
@@ -216,12 +221,6 @@ body {
       padding-top: 1%; }
       .stories li p p.text {
         color: white; }
-
-.stories li a:hover p {
-  visibility: visible;
-  height: 35%;
-  -webkit-transition: height 1s;
-  transition: height 1s; }
 
 .fail-message {
   text-align: center;

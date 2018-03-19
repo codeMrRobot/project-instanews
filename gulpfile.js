@@ -1,5 +1,3 @@
-// REQUIRES
-
 var gulp = require("gulp"),
  uglify = require("gulp-uglify"),
  rename = require("gulp-rename"),
@@ -14,7 +12,7 @@ var gulp = require("gulp"),
 
 gulp.task('sass', function() {
   gulp.src('./sass/style.scss')
-     .pipe(prettyError())//handles all error before running
+     .pipe(prettyError())
      .pipe(sass())
      .pipe(autoprefixer({
         browsers: ['last 2 versions']
@@ -26,10 +24,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('scripts',['eslint'], function () {
-  gulp.src('./js/*.js') // What files do we want gulp to consume?
-    .pipe(uglify()) // Call the uglify function on these files
-    .pipe(rename({ extname: '.min.js' })) // Rename uglified file
-    .pipe(gulp.dest('./build/js')) //dist uglified file to/build/js
+  gulp.src('./js/*.js') 
+    .pipe(uglify()) 
+    .pipe(rename({ extname: '.min.js' })) 
+    .pipe(gulp.dest('./build/js')) 
 });
 
 gulp.task('eslint', function () {
