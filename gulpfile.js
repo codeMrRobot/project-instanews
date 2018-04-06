@@ -1,13 +1,23 @@
-var gulp = require("gulp"),
- uglify = require("gulp-uglify"),
- rename = require("gulp-rename"),
- browserSync = require("browser-sync"),
- eslint = require("gulp-eslint"),
- sass = require("gulp-sass"),
- autoprefixer = require("gulp-autoprefixer"),
- cssnano = require("gulp-cssnano"),
- rename = require("gulp-rename"),
- prettyError = require("gulp-prettyerror");
+var gulp = require('gulp'); 
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  browserSync = require('browser-sync'),
+  eslint = require('gulp-eslint'),
+  sass = require('gulp-sass'),
+  autoprefixer = require('gulp-autoprefixer'),
+  cssnano = require('gulp-cssnano'),
+  prettyError = require('gulp-prettyerror'),
+  babel = require('gulp-babel');
+
+  const input = './js/scripts.js';
+  const output = './js/transpiled';
+
+gulp.task('babel', () => {
+  return gulp.src('./js/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest(output));
+});
+
 
 
 gulp.task('sass', function() {
@@ -23,15 +33,16 @@ gulp.task('sass', function() {
      .pipe(gulp.dest('./build/css'));
 });
 
-gulp.task('scripts',['eslint'], function () {
+gulp.task('scripts',['eslint','babel'], function () {
   gulp.src('./js/*.js') 
+    .pipe(babel())
     .pipe(uglify()) 
     .pipe(rename({ extname: '.min.js' })) 
     .pipe(gulp.dest('./build/js')) 
 });
 
 gulp.task('eslint', function () {
-  return gulp.src(['./js/*.js','!node_modules/*'])
+  return gulp.src(['./js/*.js','!node_modules/**'])
   .pipe(eslint())
   .pipe(eslint.format()) 
   .pipe(eslint.failAfterError());
@@ -49,7 +60,11 @@ gulp.task('browser-sync', function () {
     }
   });
 
-  gulp.watch(['.html', 'build/css/.css', 'build/js/*.js']).on('change', browserSync.reload);
+  gulp.watch(['*.html', 'build/css/*.css', 'build/js/*.js']).on('change', browserSync.reload);
 });
 
 gulp.task('default', ['watch', 'browser-sync']);
+
+
+
+
