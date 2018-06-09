@@ -26,8 +26,8 @@
 #Screen Shots
 * Applied the sudo command :hover, to reveal a smooth transition of the p.texts      acsending from the bottom of each article, only when the cursor is over the article. e.g below the cursor is set over the third article.
 
-![alt text](https://i.imgur.com/GSrKPmj.png)
-![alt text](https://i.imgur.com/q1eALiz.jpg)
+![alt text](https://i.imgur.com/GSrKPmj.png)<img src="screenshots/news.png" width="150px"><img src="screenshots/newst.png" width="150px"><img src="screenshots/newsm.png" width="150px">
+
 
 
 
