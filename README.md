@@ -3,6 +3,12 @@
 # Summary
   This project is a responsive website that displays top news stories which are fetched by using an api from the New York Times. URL's and images from the New York times are appended on to the webpage, where users can filter throught different sections of articles using a drop down menu, and it will display a total of 12 stories. Compatiable for mobile, table and desktop views. 
 
+# Screen Shots
+* Applied the sudo command :hover, to reveal a smooth transition of the p.texts      acsending from the bottom of each article, only when the cursor is over the        article. e.g below the cursor is set over the third article.
+
+![alt text](https://i.imgur.com/GSrKPmj.png)
+![alt text](https://i.imgur.com/q1eALiz.jpg)<img src="screenshots/news.png" width="150px"><img src="screenshots/newst.png" width="150px">
+
 ## Techonologies & Languages Used
 * Jquery
 * Javascript
@@ -23,11 +29,6 @@
 * Added the plugin Selectric to alter the appearance of the dropdown menu.
 * Using comments to keep everything organized and clear.
 
-# Screen Shots
-* Applied the sudo command :hover, to reveal a smooth transition of the p.texts      acsending from the bottom of each article, only when the cursor is over the article. e.g below the cursor is set over the third article.
-
-![alt text](https://i.imgur.com/GSrKPmj.png)
-![alt text](https://i.imgur.com/q1eALiz.jpg)<img src="screenshots/news.png" width="150px"><img src="screenshots/newst.png" width="150px">
 
 
 
